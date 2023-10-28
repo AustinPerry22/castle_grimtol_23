@@ -26,6 +26,13 @@
           Enter... At your own peril..
         </button>
       </router-link>
+      <div>
+          <router-link :to="{ path: '/test' }">
+            <button>
+              Test Page
+            </button>
+          </router-link>
+      </div>
       </div>
     </div>
   </div>
