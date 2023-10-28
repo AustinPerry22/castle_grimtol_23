@@ -11,6 +11,9 @@ export const AppState = reactive({
     character: '',
     score: 0
   },
+
+  scores: '',
+  
   house1Locked: false,
   house2Locked: true,
   house3Locked: true,
