@@ -1,46 +1,79 @@
 <template>
-<div class="container-fluid charSelectBG p-3">
-  <section class="row">
-    <div class="col-12">
-      <p class="fs-1 metalMania text-center mt-3">Select your character</p>
-    </div>
-  </section>
-  <section v-for="char in characters" :key="char.id" class="row border rounded p-3 m-3 justify-content-center">
-    <div class="col-12 col-md-2 p-3 d-flex justify-content-end">
-      <img :src="char.picture" :alt="char.name" class="rounded">
-    </div>
-    <div class="col-12 col-md-6 p-3 d-flex align-items-center">
-      <p class="robotoMono p-3 m-3 rounded bgBlur">{{ char.description }}</p>
-    </div>
-    <div class="col-12 col-md-2 p-3 d-flex justify-content-start">
-      <img :src="char.altPicture" :alt="char.altName" class="rounded">
-    </div>
-  </section>
-  <!-- <section class="row">
-    <div class="col-12 col-md-3">
-        <img :src="player.char.picture" :alt="char.name">
+  <div v-if="!player.character" class="container-fluid charSelectBG p-3">
+    <section class="row">
+      <div class="col-12">
+        <p class="fs-1 metalMania text-center">Select your character</p>
       </div>
-      <div class="col-12 col-md-6">
+    </section>
+    <section v-for="char in characters" :key="char.id" @click="selectCharacter(char)" 
+      class="row border rounded p-3 m-3 justify-content-center">
+      <div class="col-12 col-md-2 p-3 d-flex justify-content-end">
+        <img :src="char.picture" :alt="char.name" class="rounded">
+      </div>
+      <div class="col-12 col-md-6 p-3 d-flex align-items-center">
         <p class="robotoMono p-3 m-3 rounded bgBlur">{{ char.description }}</p>
       </div>
-      <div class="col-12 col-md-3">
-        <img :src="char.altPicture" :alt="char.altName">
+      <div class="col-12 col-md-2 p-3 d-flex justify-content-start">
+        <img :src="char.altPicture" :alt="char.altName" class="rounded">
       </div>
-  </section> -->
-</div>
+    </section>
+  </div>
+  <div v-else class="container-fluid charSelectBG p-3">
+    <section class="row p-5">
+        <div class="col-12">
+          <p class="fs-1 metalMania text-center mt-3">You have selected:</p>
+        </div>
+      </section>
+    <section class="row border rounded p-3 m-3 justify-content-center">
+      <div class="col-12 col-md-2 p-3 d-flex justify-content-end">
+        <img :src="player.character.picture" :alt="player.character.name" class="rounded">
+      </div>
+      <div class="col-12 col-md-6 p-3 d-flex align-items-center">
+        <p class="robotoMono p-3 m-3 rounded bgBlur">{{ player.character.description }}</p>
+      </div>
+      <div class="col-12 col-md-2 p-3 d-flex justify-content-start">
+        <img :src="player.character.altPicture" :alt="player.character.altName" class="rounded">
+      </div>
+    </section>
+    <section class="row p-5">
+        <div class="col-12 text-center">
+          <router-link :to="{name:'Map'}">
+            <button class="btn border-danger fs-1 metalMania text-center mt-3">Are you ready?</button>
+          </router-link>
+        </div>
+      </section>
+    </div>
+    <div class="backButton" @click="unselectCharacter()">
+      <i class="fs-1 text-danger mdi mdi-backspace"></i>
+    </div>
 </template>
 
 
 <script>
-import { AppState } from '../AppState';
+import { AppState } from '../AppState.js';
 import { computed, onMounted } from 'vue';
+import { characterService } from '../services/CharacterService.js';
 
 export default {
   setup() {
-    
+
+    onMounted(() => {
+
+    })
+
     return { 
-    characters: computed(()=> AppState.characters),
-    
+      characters: computed(() => AppState.characters),
+      player: computed(() => AppState.player),
+      
+      selectCharacter(char) {
+        characterService.setCharacter(char);
+      },
+
+      unselectCharacter() {
+        characterService.unsetCharacter();
+      },
+
+      
     }
   }
 };
@@ -62,6 +95,7 @@ export default {
 img{
   height: 16rem;
 }
+
 .metalMania{
   font-family: 'Metal Mania';
   color:white;
@@ -78,12 +112,17 @@ img{
 }
 
 .charSelectBG{
-  height: 100%;
-  width: 100%;
   background-color: #123456;
   background-image: url('../assets/img/grimtolTownWideLowContrast.png');
   background-position: center;
   background-size: cover;
 }
 
+
+.backButton{
+  position: absolute;
+  top: 1rem;
+  left:1rem;
+  opacity: .666;
+}
 </style>

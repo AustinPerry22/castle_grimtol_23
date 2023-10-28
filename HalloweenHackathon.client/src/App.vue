@@ -25,6 +25,9 @@ export default {
 // main{
 //   height: 100vh;
 // }
+body{
+  background-color: black;
+}
 
 footer {
   display: grid;
