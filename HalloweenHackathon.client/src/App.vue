@@ -19,10 +19,12 @@ export default {
 <style lang="scss">
 @import "./assets/scss/main.scss";
 
-:root{
-  --main-height: calc(100vh - 32px - 64px);
-}
-
+// :root{
+//   --main-height: calc(100vh - 32px - 64px);
+// }
+// main{
+//   height: 100vh;
+// }
 
 footer {
   display: grid;

@@ -12,9 +12,9 @@ const routes = [
     component: loadPage('HomePage')
   },
   {
-    path: '/about',
-    name: 'About',
-    component: loadPage('AboutPage')
+    path: '/character-select',
+    name: 'CharacterSelect',
+    component: loadPage('CharacterSelect')
   },
   {
     path: '/account',
@@ -23,11 +23,15 @@ const routes = [
     beforeEnter: authGuard
   },
   {
+    path: '/map',
+    name: 'Map',
+    component: loadPage('MapPage')
+  },
+  {
     path: '/triviaGrid',
     name: 'TriviaGrid',
     component: loadPage('TriviaGrid')
-    },
-  
+  },
 ]
 
 export const router = createRouter({
