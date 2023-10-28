@@ -2,7 +2,20 @@
     <img v-if="jumpscare" src="https://www.horrormovietalk.com/wp-content/uploads/2018/11/The-Nun-Jump-Scare.jpg" alt="" class="scare-card">
     <div class="container-fluid">
         <div class="row p-0 m-1 d-flex justify-content-between">
-            <div class="col-6 col-md-4 card text-white flex justify-content-center align-items-center my-2 selectable">
+            <div v-for="card in cards" :key="card" class="col-6 col-md-4 card text-white flex justify-content-center align-items-center my-2 selectable">
+                <div class="fs-3 fw-bold">
+                    <div v-if="card == 0">
+                        question card
+                    </div>
+                    <div v-if="card == 1">
+                        health potion
+                    </div>
+                    <div v-if="card == 2">
+                        suprise
+                    </div>
+                </div>
+            </div>
+            <!-- <div class="col-6 col-md-4 card text-white flex justify-content-center align-items-center my-2 selectable">
                 <div class="fs-3 fw-bold">
                     Box 1 ?
                 </div>
@@ -46,7 +59,7 @@
                 <div class="fs-3 fw-bold">
                     Box 1 ?
                 </div>
-            </div>
+            </div> -->
         </div>
     </div>
 
@@ -69,7 +82,8 @@ export default {
             logger.log("trivia cards", AppState.triviaCards)
         }
     return { 
-        jumpscare: computed(()=> AppState.jumpscare)
+        jumpscare: computed(()=> AppState.jumpscare),
+        cards: computed(()=> AppState.triviaCards)
         }
     }
 };

@@ -12,7 +12,7 @@ class ScoresService {
     }
 
     async removeScore(scoreId) {
-        const score = await dbContext.Score.remove(scoreId)
+        const score = await dbContext.Score.remove({ _id: scoreId })
         return score
     }
 
