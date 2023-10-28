@@ -1,13 +1,33 @@
 <template>
-  <div class="home flex-grow-1 d-flex flex-column align-items-center justify-content-center">
-    <div class="home-card p-5 bg-white rounded elevation-3">
-      <img src="https://bcw.blob.core.windows.net/public/img/8600856373152463" alt="CodeWorks Logo"
-        class="rounded-circle">
-      <h1 class="my-5 bg-dark text-white p-3 rounded text-center">
-        Vue 3 Starter
-      </h1>
+  <div class="background-img">
+
+    <div class="container">
+      <div class="row">
+        <div class="col-12 text-center text-light mb-5">
+          <h1 class="title">
+            Scare St.
+          </h1>
+        </div>
+      </div>
+      <div class="row text-light justify-content-center">
+        <div class="col-10 text-center">
+          <h3>
+            Welcome...... to the SPOOKIEST game this Halloween! Get ready for frights and flights as you make your way to the end of Scare Street! Answer SPOOKY questions and make your way through each house on Scare Street. FINISH THIS....
+          </h3>
+        </div>
+    </div>
+    <div class="row justify-content-center mt-5">
+      <img class="gif" src="https://media3.giphy.com/media/fnfONXQS7MmHi2AcsJ/giphy.gif?cid=6c09b9523lg0s79ahctz7nkyihv2m6piypbb2rv8fmas3tlr&ep=v1_stickers_related&rid=giphy.gif&ct=s" alt="">
+    </div>
+    <div class="row justify-content-center mt-5">
+      <div class="col-2">
+        <button class="btn btn-danger">
+          Enter... At your own peril..
+        </button>
+      </div>
     </div>
   </div>
+</div>
 </template>
 
 <script>
@@ -19,23 +39,20 @@ export default {
 </script>
 
 <style scoped lang="scss">
-.home {
-  display: grid;
-  height: 80vh;
-  place-content: center;
-  text-align: center;
-  user-select: none;
-
-  .home-card {
-    width: 50vw;
-
-    >img {
-      height: 200px;
-      max-width: 200px;
-      width: 100%;
-      object-fit: contain;
-      object-position: center;
-    }
+  .background-img{
+    background-image: url('https://images.unsplash.com/photo-1505635552518-3448ff116af3?auto=format&fit=crop&q=80&w=1965&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
+    background-position: center;
+    height: 100vh;
   }
-}
+
+  .gif{
+    max-height: 50vh;
+    max-width: 50vh;
+  }
+
+  .title{
+    font-size: 70px;
+    color: red;
+    font-family: 'grimtol_23';
+  }
 </style>
