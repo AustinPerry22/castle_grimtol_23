@@ -21,7 +21,7 @@
     </div>
     <div class="row justify-content-center mt-5">
       <div class="col-2">
-        <button class="btn btn-danger">
+        <button class="enter-button">
           Enter... At your own peril..
         </button>
       </div>
@@ -52,7 +52,18 @@ export default {
 
   .title{
     font-size: 70px;
-    color: red;
-    font-family: 'grimtol_23';
+    color: rgba(174, 10, 10, 0.734);
+    font-family: 'Metal Mania';
+  }
+
+  .enter-button{
+    border-radius: 10px;
+    background-color: rgba(174, 10, 10, 0.734);
+  }
+
+  .enter-button:hover{
+    transform: scale(1.1);
+    // transition: 0.5s ease-in;
+    transition: 0.5s ease-out;
   }
 </style>
