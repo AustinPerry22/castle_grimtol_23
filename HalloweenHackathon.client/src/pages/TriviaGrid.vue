@@ -2,10 +2,10 @@
     <img v-if="jumpscare" src="https://www.horrormovietalk.com/wp-content/uploads/2018/11/The-Nun-Jump-Scare.jpg" alt="" class="scare-card">
     <div class="container-fluid">
         <div class="row p-0 m-1 d-flex justify-content-between">
-            <div v-for="card in cards" :key="card" class="col-6 col-md-4 card text-white flex justify-content-center align-items-center my-2 selectable">
+            <div v-for="card in cards" :key="card" @click="getCard()" class="col-4 card text-white flex justify-content-center align-items-center my-2 selectable">
                 <div class="fs-3 fw-bold">
                     <div v-if="card == 0">
-                        question card
+                        <QuestionCard/>
                     </div>
                     <div v-if="card == 1">
                         health potion
@@ -15,51 +15,6 @@
                     </div>
                 </div>
             </div>
-            <!-- <div class="col-6 col-md-4 card text-white flex justify-content-center align-items-center my-2 selectable">
-                <div class="fs-3 fw-bold">
-                    Box 1 ?
-                </div>
-            </div>
-            <div class="col-6 col-md-4 card text-white flex justify-content-center align-items-center my-2 selectable">
-                <div class="fs-3 fw-bold">
-                    Box 1 ?
-                </div>
-            </div>
-            <div class="col-6 col-md-4 card text-white flex justify-content-center align-items-center my-2 selectable">
-                <div class="fs-3 fw-bold">
-                    Box 1 ?
-                </div>
-            </div>
-            <div class="col-6 col-md-4 card text-white flex justify-content-center align-items-center my-2 selectable">
-                <div class="fs-3 fw-bold">
-                    Box 1 ?
-                </div>
-            </div>
-            <div class="col-6 col-md-4 card text-white flex justify-content-center align-items-center my-2 selectable">
-                <div class="fs-3 fw-bold">
-                    Box 1 ?
-                </div>
-            </div>
-            <div class="col-6 col-md-4 card text-white flex justify-content-center align-items-center my-2 selectable">
-                <div class="fs-3 fw-bold">
-                    Box 1 ?
-                </div>
-            </div>
-            <div class="col-6 col-md-4 card text-white flex justify-content-center align-items-center my-2 selectable">
-                <div class="fs-3 fw-bold">
-                    Box 1 ?
-                </div>
-            </div>
-            <div class="col-6 col-md-4 card text-white flex justify-content-center align-items-center my-2 selectable">
-                <div class="fs-3 fw-bold">
-                    Box 1 ?
-                </div>
-            </div>
-            <div class="col-6 col-md-4 card text-white flex justify-content-center align-items-center my-2 selectable">
-                <div class="fs-3 fw-bold">
-                    Box 1 ?
-                </div>
-            </div> -->
         </div>
     </div>
 
@@ -83,7 +38,11 @@ export default {
         }
     return { 
         jumpscare: computed(()=> AppState.jumpscare),
-        cards: computed(()=> AppState.triviaCards)
+        cards: computed(()=> AppState.triviaCards),
+
+        getCard() {
+            logger.log("get card")
+        }
         }
     }
 };
