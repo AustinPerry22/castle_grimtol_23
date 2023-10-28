@@ -16,6 +16,7 @@ export const AppState = reactive({
   house3Locked: true,
   house4Locked: true,
   house5Locked: true,
+  jumpscare: false,
 
 
   characters: [
