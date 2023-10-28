@@ -1,36 +1,36 @@
 <template>
-<div v-if="!player.character" class="container-fluid charSelectBG p-3">
-  <section class="row">
-    <div class="col-12">
-      <p class="fs-1 metalMania text-center mt-3">Select your character</p>
-    </div>
-  </section>
-  <section v-for="char in characters" :key="char.id" @click="selectCharacter(char)" 
-    class="row border rounded p-3 m-3 justify-content-center">
-    <div class="col-12 col-md-2 p-3 d-flex justify-content-end">
-      <img :src="char.picture" :alt="char.name" class="rounded">
-    </div>
-    <div class="col-12 col-md-6 p-3 d-flex align-items-center">
-      <p class="robotoMono p-3 m-3 rounded bgBlur">{{ char.description }}</p>
-    </div>
-    <div class="col-12 col-md-2 p-3 d-flex justify-content-start">
-      <img :src="char.altPicture" :alt="char.altName" class="rounded">
-    </div>
-  </section>
-</div>
-<div v-else class="container-fluid charSelectBG p-3">
-  <section class="row">
-    <div class="col-12 col-md-3">
-        <img :src="player.character.picture" :alt="player.character.name">
+  <div v-if="!player.character" class="container-fluid charSelectBG p-3">
+    <section class="row">
+      <div class="col-12">
+        <p class="fs-1 metalMania text-center mt-3">Select your character</p>
       </div>
-      <div class="col-12 col-md-6">
+    </section>
+    <section v-for="char in characters" :key="char.id" @click="selectCharacter(char)" 
+      class="row border rounded p-3 m-3 justify-content-center">
+      <div class="col-12 col-md-2 p-3 d-flex justify-content-end">
+        <img :src="char.picture" :alt="char.name" class="rounded">
+      </div>
+      <div class="col-12 col-md-6 p-3 d-flex align-items-center">
+        <p class="robotoMono p-3 m-3 rounded bgBlur">{{ char.description }}</p>
+      </div>
+      <div class="col-12 col-md-2 p-3 d-flex justify-content-start">
+        <img :src="char.altPicture" :alt="char.altName" class="rounded">
+      </div>
+    </section>
+  </div>
+  <div v-else class="container-fluid charSelectBG p-3">
+    <section class="row border rounded p-3 m-3 justify-content-center">
+      <div class="col-12 col-md-2 p-3 d-flex justify-content-end">
+        <img :src="player.character.picture" :alt="player.character.name" class="rounded">
+      </div>
+      <div class="col-12 col-md-6 p-3 d-flex align-items-center">
         <p class="robotoMono p-3 m-3 rounded bgBlur">{{ player.character.description }}</p>
       </div>
-      <div class="col-12 col-md-3">
-        <img :src="player.character.altPicture" :alt="player.character.altName">
+      <div class="col-12 col-md-2 p-3 d-flex justify-content-start">
+        <img :src="player.character.altPicture" :alt="player.character.altName" class="rounded">
       </div>
-  </section>
-</div>
+    </section>
+  </div>
 </template>
 
 
@@ -38,7 +38,6 @@
 import { AppState } from '../AppState.js';
 import { computed, onMounted } from 'vue';
 import { characterService } from '../services/CharacterService.js';
-import { logger } from "../utils/Logger";
 
 export default {
   setup() {
@@ -46,7 +45,7 @@ export default {
     onMounted(() => {
 
     })
-    
+
     return { 
       characters: computed(() => AppState.characters),
       player: computed(() => AppState.player),
@@ -78,6 +77,7 @@ export default {
 img{
   height: 16rem;
 }
+
 .metalMania{
   font-family: 'Metal Mania';
   color:white;
@@ -100,6 +100,10 @@ img{
   background-image: url('../assets/img/grimtolTownWideLowContrast.png');
   background-position: center;
   background-size: cover;
+}
+
+.container-fluid{
+  height:100%;
 }
 
 </style>
