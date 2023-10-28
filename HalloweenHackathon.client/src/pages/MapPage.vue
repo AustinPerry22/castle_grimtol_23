@@ -33,6 +33,7 @@ export default {
     position: absolute;
     top: 45dvh;
     left: 5dvw;
+    cursor: pointer;
 }
 .house2{
     position: absolute;
@@ -40,21 +41,25 @@ export default {
     width: 12.5dvw;
     top: 10dvh;
     left: 10dvw;
+    cursor: pointer;
 }
 .house3{
     position: absolute;
     top: 37.5dvh;
     left: 35dvw;
+    cursor: pointer;
 }
 .house4{
     position: absolute;
     top: 60dvh;
     left: 67.5dvw;
+    cursor: pointer;
 }
 .house5{
     position: absolute;
     top: 2.5dvh;
     left: 55dvw;
+    cursor: pointer;
 }
 .title{
     font-size: 70px;
