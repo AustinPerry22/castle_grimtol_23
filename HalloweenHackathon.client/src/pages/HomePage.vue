@@ -21,9 +21,11 @@
     </div>
     <div class="row justify-content-center mt-5">
       <div class="col-2">
+        <router-link :to="{path: 'map'}">
         <button class="enter-button">
           Enter... At your own peril..
         </button>
+      </router-link>
       </div>
     </div>
   </div>
