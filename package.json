@@ -1,0 +1,13 @@
+
+  {
+    "name": "halloweenhackathon",
+    "version": "1.0.0",
+    "scripts": {
+      "build": "npm run setup:server",
+      "setup:app": "npm run setup:server && npm run setup:client",
+      "setup:client": "cd HalloweenHackathon.client && npm i",
+      "setup:server": "cd HalloweenHackathon && npm i",
+      "start": "node HalloweenHackathon/index.js"
+    }
+  }
+  
