@@ -17,12 +17,6 @@ const routes = [
     component: loadPage('CharacterSelect')
   },
   {
-    path: '/account',
-    name: 'Account',
-    component: loadPage('AccountPage'),
-    beforeEnter: authGuard
-  },
-  {
     path: '/map',
     name: 'Map',
     component: loadPage('MapPage')
@@ -31,6 +25,12 @@ const routes = [
     path: '/triviaGrid',
     name: 'TriviaGrid',
     component: loadPage('TriviaGrid')
+  },
+  {
+    path: '/account',
+    name: 'Account',
+    component: loadPage('AccountPage'),
+    beforeEnter: authGuard
   },
 ]
 

@@ -2,7 +2,7 @@
   <div v-if="!player.character" class="container-fluid charSelectBG p-3">
     <section class="row">
       <div class="col-12">
-        <p class="fs-1 metalMania text-center mt-3">Select your character</p>
+        <p class="fs-1 metalMania text-center">Select your character</p>
       </div>
     </section>
     <section v-for="char in characters" :key="char.id" @click="selectCharacter(char)" 
@@ -19,6 +19,11 @@
     </section>
   </div>
   <div v-else class="container-fluid charSelectBG p-3">
+    <section class="row p-5">
+        <div class="col-12">
+          <p class="fs-1 metalMania text-center mt-3">You have selected:</p>
+        </div>
+      </section>
     <section class="row border rounded p-3 m-3 justify-content-center">
       <div class="col-12 col-md-2 p-3 d-flex justify-content-end">
         <img :src="player.character.picture" :alt="player.character.name" class="rounded">
@@ -30,7 +35,17 @@
         <img :src="player.character.altPicture" :alt="player.character.altName" class="rounded">
       </div>
     </section>
-  </div>
+    <section class="row p-5">
+        <div class="col-12 text-center">
+          <router-link :to="{name:'Map'}">
+            <button class="btn border-danger fs-1 metalMania text-center mt-3">Are you ready?</button>
+          </router-link>
+        </div>
+      </section>
+    </div>
+    <div class="backButton" @click="unselectCharacter()">
+      <i class="fs-1 text-danger mdi mdi-backspace"></i>
+    </div>
 </template>
 
 
@@ -51,9 +66,12 @@ export default {
       player: computed(() => AppState.player),
       
       selectCharacter(char) {
-        characterService.setCharacter(char)
-      }
+        characterService.setCharacter(char);
+      },
 
+      unselectCharacter() {
+        characterService.unsetCharacter();
+      },
 
       
     }
@@ -94,16 +112,17 @@ img{
 }
 
 .charSelectBG{
-  height: 100%;
-  width: 100%;
   background-color: #123456;
   background-image: url('../assets/img/grimtolTownWideLowContrast.png');
   background-position: center;
   background-size: cover;
 }
 
-.container-fluid{
-  height:100%;
-}
 
+.backButton{
+  position: absolute;
+  top: 1rem;
+  left:1rem;
+  opacity: .666;
+}
 </style>
