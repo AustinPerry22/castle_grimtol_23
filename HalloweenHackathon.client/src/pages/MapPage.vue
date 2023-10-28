@@ -3,6 +3,10 @@
     <h1 class="title">
         Scare St.
     </h1>
+    <img v-if="house1Unlocked" src="../assets/img/lock.png" alt="" class="house1 lock-img">
+    <img v-if="!house2Unlocked" src="../assets/img/lock.png" alt="" class="house2 lock-img">
+    <img src="../assets/img/lock.png" alt="" class="house3 lock-img">
+    <img src="../assets/img/lock.png" alt="" class="house4 lock-img">
     <img src="../assets/img/lock.png" alt="" class="house5 lock-img">
     <img src="https://media3.giphy.com/media/wiwZ3kBPtrG6wYMNjw/giphy.gif?cid=6c09b952bkudwaf55l5px1ksankpvji0zba4f6ctk5gvqi9n&ep=v1_stickers_related&rid=giphy.gif&ct=s" alt="" class="house1">
     <img src="https://media4.giphy.com/media/dOTLg5cVzgMap6na2l/200.webp?cid=ecf05e47qwf06g0dx80rj9th54tufrx7k6btouu1og4n9tvk&ep=v1_stickers_search&rid=200.webp&ct=s" alt="" class="house2">
@@ -17,7 +21,13 @@
     import { computed, reactive, onMounted } from 'vue';
     export default {
         setup(){
-        return {  }
+        return { 
+            house1Unlocked: computed(()=> AppState.house1Unlocked),
+            house2Unlocked: computed(()=> AppState.house2Unlocked),
+            house3Unlocked: computed(()=> AppState.house3Unlocked),
+            house4Unlocked: computed(()=> AppState.house4Unlocked),
+            house5Unlocked: computed(()=> AppState.house5Unlocked)
+         }
         }
     };
     </script>
