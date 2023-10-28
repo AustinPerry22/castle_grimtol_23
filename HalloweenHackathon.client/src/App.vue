@@ -27,6 +27,7 @@ export default {
 // }
 body{
   background-color: black;
+  color:white;
 }
 
 footer {
