@@ -11,11 +11,11 @@ export const AppState = reactive({
     character: '',
     score: 0
   },
-  house1Unlocked: true,
-  house2Unlocked: false,
-  house3Unlocked: false,
-  house4Unlocked: false,
-  house5Unlocked: false,
+  house1Locked: false,
+  house2Locked: true,
+  house3Locked: true,
+  house4Locked: true,
+  house5Locked: true,
 
 
   characters: [

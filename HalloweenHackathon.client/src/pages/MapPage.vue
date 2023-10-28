@@ -3,30 +3,36 @@
     <h1 class="title">
         Scare St.
     </h1>
-    <img v-if="house1Unlocked" src="../assets/img/lock.png" alt="" class="house1 lock-img">
-    <img v-if="!house2Unlocked" src="../assets/img/lock.png" alt="" class="house2 lock-img">
-    <img src="../assets/img/lock.png" alt="" class="house3 lock-img">
-    <img src="../assets/img/lock.png" alt="" class="house4 lock-img">
-    <img src="../assets/img/lock.png" alt="" class="house5 lock-img">
-    <img src="https://media3.giphy.com/media/wiwZ3kBPtrG6wYMNjw/giphy.gif?cid=6c09b952bkudwaf55l5px1ksankpvji0zba4f6ctk5gvqi9n&ep=v1_stickers_related&rid=giphy.gif&ct=s" alt="" class="house1">
-    <img src="https://media4.giphy.com/media/dOTLg5cVzgMap6na2l/200.webp?cid=ecf05e47qwf06g0dx80rj9th54tufrx7k6btouu1og4n9tvk&ep=v1_stickers_search&rid=200.webp&ct=s" alt="" class="house2">
-    <img src="https://media3.giphy.com/media/sDkA2qix4cnK5P8BUZ/200.webp?cid=ecf05e47howgjdzp6ovy3yskbx8p83d7mrqju3vv0qabhc2r&ep=v1_stickers_search&rid=200.webp&ct=s" alt="" class="house3">
-    <img src="https://media4.giphy.com/media/vWoRDgGYaZAqw5jzwR/200.webp?cid=ecf05e47yez34kroushgynwgzz015nbt4v43bzvq753gg3yo&ep=v1_stickers_search&rid=200.webp&ct=s" alt="" class="house4">
-    <img src="https://media0.giphy.com/media/6DOkW5jyFFdQVa5iQT/200.webp?cid=ecf05e47yez34kroushgynwgzz015nbt4v43bzvq753gg3yo&ep=v1_stickers_search&rid=200.webp&ct=s" alt="" class="house5">
+    <img v-if="house1Locked" src="../assets/img/lock.png" alt="" class="house1 lock-img">
+    <img v-if="house2Locked" src="../assets/img/lock.png" alt="" class="house2 lock-img">
+    <img v-if="house3Locked" src="../assets/img/lock.png" alt="" class="house3 lock-img">
+    <img v-if="house4Locked" src="../assets/img/lock.png" alt="" class="house4 lock-img">
+    <img v-if="house5Locked" src="../assets/img/lock.png" alt="" class="house5 lock-img">
+    <img src="https://media3.giphy.com/media/wiwZ3kBPtrG6wYMNjw/giphy.gif?cid=6c09b952bkudwaf55l5px1ksankpvji0zba4f6ctk5gvqi9n&ep=v1_stickers_related&rid=giphy.gif&ct=s" alt="" class="house1" @click="goToHousePage(1, house1Locked)">
+    <img src="https://media4.giphy.com/media/dOTLg5cVzgMap6na2l/200.webp?cid=ecf05e47qwf06g0dx80rj9th54tufrx7k6btouu1og4n9tvk&ep=v1_stickers_search&rid=200.webp&ct=s" alt="" class="house2" @click="goToHousePage(2, house2Locked)">
+    <img src="https://media3.giphy.com/media/sDkA2qix4cnK5P8BUZ/200.webp?cid=ecf05e47howgjdzp6ovy3yskbx8p83d7mrqju3vv0qabhc2r&ep=v1_stickers_search&rid=200.webp&ct=s" alt="" class="house3" @click="goToHousePage(3, house3Locked)">
+    <img src="https://media4.giphy.com/media/vWoRDgGYaZAqw5jzwR/200.webp?cid=ecf05e47yez34kroushgynwgzz015nbt4v43bzvq753gg3yo&ep=v1_stickers_search&rid=200.webp&ct=s" alt="" class="house4" @click="goToHousePage(4, house4Locked)">
+    <img src="https://media0.giphy.com/media/6DOkW5jyFFdQVa5iQT/200.webp?cid=ecf05e47yez34kroushgynwgzz015nbt4v43bzvq753gg3yo&ep=v1_stickers_search&rid=200.webp&ct=s" alt="" class="house5" @click="goToHousePage(5, house5Locked)">
     </template>
     
     
     <script>
     import { AppState } from '../AppState';
     import { computed, reactive, onMounted } from 'vue';
+    import { router } from '../router';
     export default {
         setup(){
         return { 
-            house1Unlocked: computed(()=> AppState.house1Unlocked),
-            house2Unlocked: computed(()=> AppState.house2Unlocked),
-            house3Unlocked: computed(()=> AppState.house3Unlocked),
-            house4Unlocked: computed(()=> AppState.house4Unlocked),
-            house5Unlocked: computed(()=> AppState.house5Unlocked)
+            house1Locked: computed(()=> AppState.house1Locked),
+            house2Locked: computed(()=> AppState.house2Locked),
+            house3Locked: computed(()=> AppState.house3Locked),
+            house4Locked: computed(()=> AppState.house4Locked),
+            house5Locked: computed(()=> AppState.house5Locked),
+
+            goToHousePage(houseNumber, locked){
+                if(locked) return
+                router.push({name: "TriviaGrid"})
+            }
          }
         }
     };
