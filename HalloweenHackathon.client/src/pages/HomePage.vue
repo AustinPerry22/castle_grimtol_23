@@ -8,7 +8,7 @@
       </div>
     </div>
     <div class="row">
-      Welcome..... to the SPOOKIEST game of this year's Halloween! Be 
+      Welcome..... to the SPOOKIEST game of this year's Halloween! Be asdfasdfasdf
     </div>
   </div>
 </template>
