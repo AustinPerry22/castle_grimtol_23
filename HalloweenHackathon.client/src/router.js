@@ -26,7 +26,12 @@ const routes = [
     path: '/map',
     name: 'Map',
     component: loadPage('MapPage')
-  }
+  },
+  {
+    path: '/triviaGrid',
+    name: 'TriviaGrid',
+    component: loadPage('TriviaGrid')
+  },
 ]
 
 export const router = createRouter({
