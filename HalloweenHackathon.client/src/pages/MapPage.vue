@@ -36,41 +36,36 @@
     border-radius: 5rem;
     z-index: 1;
 }
-    .house1{
-        position: absolute;
-        top: 45dvh;
-        left: 5dvw;
-        cursor: pointer;
-    }
-    .house2{
-        position: absolute;
-        border-radius: 5rem;
-        width: 12.5dvw;
-        top: 10dvh;
-        left: 10dvw;
-        cursor: pointer;
-    }
-    .house3{
-        position: absolute;
-        top: 37.5dvh;
-        left: 35dvw;
-        cursor: pointer;
-    }
-    .house4{
-        position: absolute;
-        top: 60dvh;
-        left: 67.5dvw;
-        cursor: pointer;
-    }
-    .house5{
-        position: absolute;
-        top: 2.5dvh;
-        left: 55dvw;
-        cursor: pointer;
-    }
-    .title{
-        font-size: 70px;
-        color: rgba(174, 10, 10, 0.734);
-        font-family: 'Metal Mania';
-      }
-    </style>
+.house1{
+    position: absolute;
+    top: 45dvh;
+    left: 5dvw;
+}
+.house2{
+    position: absolute;
+    border-radius: 5rem;
+    width: 12.5dvw;
+    top: 10dvh;
+    left: 10dvw;
+}
+.house3{
+    position: absolute;
+    top: 37.5dvh;
+    left: 35dvw;
+}
+.house4{
+    position: absolute;
+    top: 60dvh;
+    left: 67.5dvw;
+}
+.house5{
+    position: absolute;
+    top: 2.5dvh;
+    left: 55dvw;
+}
+.title{
+    font-size: 70px;
+    color: rgba(174, 10, 10, 0.734);
+    font-family: 'Metal Mania';
+  }
+</style>
