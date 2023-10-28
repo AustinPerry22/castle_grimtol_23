@@ -1,16 +1,32 @@
 <template>
-<div class="container-fluid charSelectBG">
-  <section v-for="char in characters" :key="char.id" class="row">
-    <div class="col-12 col-md-3">
-      <img :src="char.picture" :alt="char.name">
-    </div>
-    <div class="col-12 col-md-6">
-      <p class="robotoMono p-3 m-3 rounded bgBlur">{{ char.description }}</p>
-    </div>
-    <div class="col-12 col-md-3">
-      <img :src="char.altPicture" :alt="char.altName">
+<div class="container-fluid charSelectBG p-3">
+  <section class="row">
+    <div class="col-12">
+      <p class="fs-1 metalMania text-center mt-3">Select your character</p>
     </div>
   </section>
+  <section v-for="char in characters" :key="char.id" class="row border rounded p-3 m-3 justify-content-center">
+    <div class="col-12 col-md-2 p-3 d-flex justify-content-end">
+      <img :src="char.picture" :alt="char.name" class="rounded">
+    </div>
+    <div class="col-12 col-md-6 p-3 d-flex align-items-center">
+      <p class="robotoMono p-3 m-3 rounded bgBlur">{{ char.description }}</p>
+    </div>
+    <div class="col-12 col-md-2 p-3 d-flex justify-content-start">
+      <img :src="char.altPicture" :alt="char.altName" class="rounded">
+    </div>
+  </section>
+  <!-- <section class="row">
+    <div class="col-12 col-md-3">
+        <img :src="player.char.picture" :alt="char.name">
+      </div>
+      <div class="col-12 col-md-6">
+        <p class="robotoMono p-3 m-3 rounded bgBlur">{{ char.description }}</p>
+      </div>
+      <div class="col-12 col-md-3">
+        <img :src="char.altPicture" :alt="char.altName">
+      </div>
+  </section> -->
 </div>
 </template>
 
@@ -23,7 +39,7 @@ export default {
   setup() {
     
     return { 
-      characters: AppState.characters,
+    characters: computed(()=> AppState.characters),
     
     }
   }
@@ -43,6 +59,9 @@ export default {
     font-display: block
 }
 
+img{
+  height: 16rem;
+}
 .metalMania{
   font-family: 'Metal Mania';
   color:white;
