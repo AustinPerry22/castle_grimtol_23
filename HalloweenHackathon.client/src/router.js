@@ -21,7 +21,13 @@ const routes = [
     name: 'Account',
     component: loadPage('AccountPage'),
     beforeEnter: authGuard
-  }
+  },
+  {
+    path: '/triviaGrid',
+    name: 'TriviaGrid',
+    component: loadPage('TriviaGrid')
+    },
+  
 ]
 
 export const router = createRouter({
