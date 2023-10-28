@@ -1,4 +1,5 @@
 <template>
+    <img v-if="jumpscare" src="https://www.horrormovietalk.com/wp-content/uploads/2018/11/The-Nun-Jump-Scare.jpg" alt="" class="scare-card">
     <div class="container-fluid">
         <div class="row p-0 m-1 d-flex justify-content-between">
             <div class="col-6 col-md-4 card text-white flex justify-content-center align-items-center my-2 selectable">
@@ -55,11 +56,18 @@
 <script>
 import { AppState } from '../AppState';
 import { computed, reactive, onMounted } from 'vue';
+import {triviaService} from '../services/TriviaService'
 export default {
     setup(){
-
+        onMounted(()=>
+            generateCards()
+        )
+        function generateCards()
+        {
+            triviaService.generateCards()
+        }
     return { 
-
+        jumpscare: computed(()=> AppState.jumpscare)
         }
     }
 };
@@ -67,6 +75,10 @@ export default {
 
 
 <style lang="scss" scoped>
+.scare-card{
+    height: 100dvh;
+    width: 70dvw;
+}
 .card{
     height: 30dvh;
     background-image: url("https://st4.depositphotos.com/2627021/31189/i/450/depositphotos_311899432-stock-photo-jack-lanterns-spooky-forest-moonlight.jpg") ;
