@@ -11,11 +11,15 @@ export const AppState = reactive({
     character: '',
     score: 0
   },
+  // random array of 0,1,2
+  triviaCards: [],
+
   house1Locked: false,
   house2Locked: true,
   house3Locked: true,
   house4Locked: true,
   house5Locked: true,
+  jumpscare: false,
 
 
   characters: [
