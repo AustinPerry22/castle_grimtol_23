@@ -57,6 +57,7 @@
 import { AppState } from '../AppState';
 import { computed, reactive, onMounted } from 'vue';
 import {triviaService} from '../services/TriviaService'
+import { logger } from '../utils/Logger';
 export default {
     setup(){
         onMounted(()=>
@@ -65,6 +66,7 @@ export default {
         function generateCards()
         {
             triviaService.generateCards()
+            logger.log("trivia cards", AppState.triviaCards)
         }
     return { 
         jumpscare: computed(()=> AppState.jumpscare)
