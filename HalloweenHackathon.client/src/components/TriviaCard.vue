@@ -2,27 +2,27 @@
   <div class="container-fluid trivia-img">
     <section class="row">
       <div class="col-12 text-center">
-        <h1 v-if="card" class="text">
+        <h3 v-if="card" class="text">
           {{ card.question.question }}
-        </h1>
+          <h6 @click="submitAnswer(answers[0])">{{ answers[0] }}</h6>
+        
+       
+          <h6 @click="submitAnswer(answers[1])">{{ answers[1] }}</h6>
+        
+          <h6 @click="submitAnswer(answers[2])">{{ answers[2] }}</h6>
+          <h6 @click="submitAnswer(answers[3])">{{ answers[3] }}</h6>
+        </h3>
       </div>
     </section>
     <section class="row">
       <div class="col-6">
-        <div class="row">
-          {{ answers[0] }}
-        </div>
-        <div class="row">
-          {{ answers[1] }}
-        </div>
+          
       </div>
       <div class="col-6">
-        <div class="row">
-          {{ answers[2] }}
-        </div>
-        <div class="row">
-          {{ answers[3] }}
-        </div>
+        
+        
+        
+  
       </div>
     </section>
   </div>
@@ -33,6 +33,8 @@ import { onMounted } from 'vue';
 import { triviaService } from '../services/TriviaService';
 import { Card } from '../models/Card';
 import { logger } from '../utils/Logger';
+import { AppState } from "../AppState.js";
+import Pop from '../utils/Pop';
 
 export default {
   props: {card: {type: Card}},
@@ -42,7 +44,10 @@ setup(props) {
     triviaService.getQuestion(props.card)
     randomizeAnswers()
   }
+
   let answers = []
+
+  
   function randomizeAnswers(){
     let randomizedAnswers = []
     logger.log(props.card.question)
@@ -51,16 +56,26 @@ setup(props) {
       answers.push(answer)
     })
     logger.log(answers)
-    answers.forEach(answer=>{
+    for(let i=0; i< 4; i++){
       const randomIndex = Math.floor(Math.random()*answers.length)
       let splicedAnswer = answers.splice(randomIndex, 1)
       randomizedAnswers.push(splicedAnswer[0])
-    })
+    }
     answers = randomizedAnswers
   }
 
   return {
-    answers
+    answers,
+    submitAnswer(answerId){
+      if(answerId == props.card.question.correctAnswer) 
+      {
+        AppState.player.score++
+        Pop.success("right answer")
+      } 
+      else{
+        Pop.error("You are dead")
+      }
+    }
   };
 },
 };

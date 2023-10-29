@@ -20,6 +20,10 @@ class QuestionsService {
     return newQuestion
   }
 
+  async removeQuestion(questionId) {
+    const deleted = await dbContext.Questions.remove({ _id: questionId })
+    return deleted
+  }
 }
 
 export const questionsService = new QuestionsService();
