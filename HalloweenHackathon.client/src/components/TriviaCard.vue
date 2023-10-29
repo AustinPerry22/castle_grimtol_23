@@ -2,15 +2,12 @@
   <div class="container-fluid trivia-img">
     <section class="row">
       <div class="col-12 text-center">
-        <h3 v-if="card" class="text">
+        <h3 v-if="card && answers" class="text">
           {{ card.question.question }}
-          <h6 @click="submitAnswer(answers[0])">{{ answers[0] }}</h6>
-        
-       
-          <h6 @click="submitAnswer(answers[1])">{{ answers[1] }}</h6>
-        
-          <h6 @click="submitAnswer(answers[2])">{{ answers[2] }}</h6>
-          <h6 @click="submitAnswer(answers[3])">{{ answers[3] }}</h6>
+          <h5 @click="submitAnswer(answers[0])">{{ answers[0] }}</h5>
+          <h5 @click="submitAnswer(answers[1])">{{ answers[1] }}</h5>
+          <h5 @click="submitAnswer(answers[2])">{{ answers[2] }}</h5>
+          <h5 @click="submitAnswer(answers[3])">{{ answers[3] }}</h5>
         </h3>
       </div>
     </section>
@@ -29,7 +26,7 @@
 </template>
 
 <script>
-import { onMounted } from 'vue';
+import { onMounted, ref } from 'vue';
 import { triviaService } from '../services/TriviaService';
 import { Card } from '../models/Card';
 import { logger } from '../utils/Logger';
@@ -45,23 +42,23 @@ setup(props) {
     randomizeAnswers()
   }
 
-  let answers = []
+  let answers = ref([])
 
   
   function randomizeAnswers(){
     let randomizedAnswers = []
     logger.log(props.card.question)
-    answers.push(props.card.question.correctAnswer)
+    answers.value.push(props.card.question.correctAnswer)
     props.card.question.incorrectAnswers.forEach(answer=>{
-      answers.push(answer)
+      answers.value.push(answer)
     })
     logger.log(answers)
     for(let i=0; i< 4; i++){
-      const randomIndex = Math.floor(Math.random()*answers.length)
-      let splicedAnswer = answers.splice(randomIndex, 1)
+      const randomIndex = Math.floor(Math.random()*answers.value.length)
+      let splicedAnswer = answers.value.splice(randomIndex, 1)
       randomizedAnswers.push(splicedAnswer[0])
     }
-    answers = randomizedAnswers
+    answers.value = randomizedAnswers
   }
 
   return {
