@@ -21,6 +21,40 @@ export const AppState = reactive({
   house5Locked: true,
   jumpscare: false,
 
+  potions: [
+    {
+      name: 'Elixir of Courage',
+      description: 'Elixir that adds 50% courage to your courage bar!',
+      courageIncrease: 50,
+      img: 'https://media1.giphy.com/media/wQs3zmKzFd6IghJm4L/giphy.webp?cid=ecf05e47jb2s2llqla2dc8cu31j0kvt4f55s0k5czquof5ph&ep=v1_stickers_search&rid=giphy.webp&ct=s'
+    },
+    {
+      name: 'Potion of Resilience',
+      description: 'Potion that adds 25% courage to your courage bar!',
+      courageIncrease: 25,
+      img: 'https://media0.giphy.com/media/tvjRxEdLKNce8Fg74G/200w.webp?cid=ecf05e47jb2s2llqla2dc8cu31j0kvt4f55s0k5czquof5ph&ep=v1_stickers_search&rid=200w.webp&ct=s'
+    }
+  ],
+
+  jumpScares: [
+    {
+      name: 'HELP ME!!!!',
+      img: 'https://media2.giphy.com/media/XfDLLaLEVMIjTrbXuW/giphy.gif?cid=6c09b952vgab1u32lwudzejngqupt6jhgyda1k1axuf0kts1&ep=v1_stickers_related&rid=giphy.gif&ct=s'
+    },
+    {
+      name: "Don't sleep." ,
+      img: 'https://media.tenor.com/M5CDDMSJavIAAAAj/lomando-kuchisake-onna.gif'
+    },
+    {
+      name: 'Hungry hungry!',
+      img: 'https://i.gifer.com/origin/fc/fc1ca5c0851ae6de960df464ee607d3d_w200.gif'
+    }
+  ],
+
+
+
+
+
 
   characters: [
     {
