@@ -11,12 +11,13 @@
                 </div>
                 <div v-if="card.type == 2 && !card.locked">
                     <ScareCard/>
+                    
                 </div>
                 <div v-if="card.locked" class="card text-white flex justify-content-center align-items-center my-2 selectable"></div>
             </div>
         </div>
     </div>
-
+    <audio id="audio" class="d-none" src="../assets/music/Cinematic Horror/female-scream-horror_120bpm.wav"></audio>
 </template>
 
 
@@ -66,8 +67,23 @@ export default {
                     logger.log('random number for type 1:', randomNumber)
                     AppState.activeJumpScare = AppState.jumpScares[randomNumber]
                     logger.log('the following potion is our active jump scare:', AppState.activeJumpScare)
+                    this.playSound(randomNumber)
+                }
+            },
+
+            playSound() {
+                const sound = AppState.activeJumpScare.music
+                var audio = new Audio(sound);
+                logger.log('sound:', audio)
+                if (sound) {
+                    audio.play();
                 }
             }
+            // async play(){
+            //     const audioElement = document.getElementById('audio')
+            //     logger.log('here is our audio elem:', audioElement)
+            //     audioElement.play()
+            // }
         };
     },
     components: { TriviaCard }

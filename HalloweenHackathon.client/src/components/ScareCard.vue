@@ -1,8 +1,9 @@
 <template>
     <div class="row">
         <div class="col-12">
-            <img :src="jumpScare.img" alt="">
+            <img class="scare-img" :src="jumpScare.img" alt="">
         </div>
+        <audio :src="jumpScare.music"></audio>
     </div>
 </template>
 
@@ -21,5 +22,8 @@ export default {
 
 
 <style lang="scss" scoped>
-
+.scare-img{
+    min-width: 100vh;
+    min-height: 100vh;
+}
 </style>
