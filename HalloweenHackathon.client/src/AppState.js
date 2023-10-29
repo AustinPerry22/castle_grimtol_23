@@ -10,6 +10,8 @@ export const AppState = reactive({
 
   activePotion: {},
 
+  activeCorrect:0,
+
   player: {
     name: '',
     character: '',

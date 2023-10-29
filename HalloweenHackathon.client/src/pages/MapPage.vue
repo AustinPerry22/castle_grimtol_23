@@ -13,6 +13,7 @@
     <img src="https://media3.giphy.com/media/sDkA2qix4cnK5P8BUZ/200.webp?cid=ecf05e47howgjdzp6ovy3yskbx8p83d7mrqju3vv0qabhc2r&ep=v1_stickers_search&rid=200.webp&ct=s" alt="" class="house3" @click="goToHousePage(3, house3Locked)">
     <img src="https://media4.giphy.com/media/vWoRDgGYaZAqw5jzwR/200.webp?cid=ecf05e47yez34kroushgynwgzz015nbt4v43bzvq753gg3yo&ep=v1_stickers_search&rid=200.webp&ct=s" alt="" class="house4" @click="goToHousePage(4, house4Locked)">
     <img src="https://media0.giphy.com/media/6DOkW5jyFFdQVa5iQT/200.webp?cid=ecf05e47yez34kroushgynwgzz015nbt4v43bzvq753gg3yo&ep=v1_stickers_search&rid=200.webp&ct=s" alt="" class="house5" @click="goToHousePage(5, house5Locked)">
+    <ScoreboardButton />
     </template>
     
     
@@ -20,22 +21,26 @@
     import { AppState } from '../AppState';
     import { computed, reactive, onMounted } from 'vue';
     import { router } from '../router';
-    export default {
-        setup(){
-        return { 
-            house1Locked: computed(()=> AppState.house1Locked),
-            house2Locked: computed(()=> AppState.house2Locked),
-            house3Locked: computed(()=> AppState.house3Locked),
-            house4Locked: computed(()=> AppState.house4Locked),
-            house5Locked: computed(()=> AppState.house5Locked),
+    import ScoreboardButton from "../components/ScoreboardButton.vue";
+import ScoreboardButton from "../components/ScoreboardButton.vue";
 
-            goToHousePage(houseNumber, locked){
-                if(locked) return
-                router.push({name: "TriviaGrid"})
+    export default {
+    setup() {
+        return {
+            house1Locked: computed(() => AppState.house1Locked),
+            house2Locked: computed(() => AppState.house2Locked),
+            house3Locked: computed(() => AppState.house3Locked),
+            house4Locked: computed(() => AppState.house4Locked),
+            house5Locked: computed(() => AppState.house5Locked),
+            goToHousePage(houseNumber, locked) {
+                if (locked)
+                    return;
+                router.push({ name: "TriviaGrid" });
             }
-         }
-        }
-    };
+        };
+    },
+    components: { ScoreboardButton }
+};
     </script>
     
     

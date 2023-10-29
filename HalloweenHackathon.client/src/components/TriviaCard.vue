@@ -12,39 +12,30 @@
         </h4>
       </div>
     </section>
-    <section class="row">
-      <div class="col-6">
-          
-      </div>
-      <div class="col-6">
-        
-        
-        
-  
-      </div>
-    </section>
   </div>
 </template>
 
 <script>
-import { onMounted, ref } from 'vue';
+import { computed, onMounted, ref } from 'vue';
 import { triviaService } from '../services/TriviaService';
 import { Card } from '../models/Card';
 import { logger } from '../utils/Logger';
 import { AppState } from "../AppState.js";
 import Pop from '../utils/Pop';
+import { useRouter } from "vue-router";
 
 export default {
   props: {card: {type: Card}},
 setup(props) {
-  onMounted(()=> getQuestion())
+  onMounted(() => getQuestion())
+  
   function getQuestion(){
     triviaService.getQuestion(props.card)
     randomizeAnswers()
   }
 
-  let answers = ref([])
-
+  let answers = ref([]);
+  const router = useRouter();
   
   function randomizeAnswers(){
     let randomizedAnswers = []
@@ -53,7 +44,7 @@ setup(props) {
     props.card.question.incorrectAnswers.forEach(answer=>{
       answers.value.push(answer)
     })
-    logger.log(answers)
+    logger.log(answers.value)
     for(let i=0; i< 4; i++){
       const randomIndex = Math.floor(Math.random()*answers.value.length)
       let splicedAnswer = answers.value.splice(randomIndex, 1)
@@ -64,16 +55,23 @@ setup(props) {
 
   return {
     answers,
+    correctAnswers: computed(()=> AppState.activeCorrect),
+
     submitAnswer(answerId){
-      if(answerId == props.card.question.correctAnswer) 
+      if(answerId == props.card.question.correctAnswer && !props.card.guessed) 
       {
-        AppState.player.score++;
+        AppState.player.score++
+        this.correctAnswers++
         props.card.guessed = true;
-        Pop.success("right answer")
+        Pop.success("Correct!")
+        if (this.correctAnswers> 4) {
+          this.correctAnswers = 0;
+          router.push({name:'Scoreboard'})
+        }
       } 
-      else{
+      else if(!props.card.guessed){
         props.card.guessed = true;
-        Pop.error("You are dead")
+        Pop.error("Sorry, wrong answer")
       }
     }
   };

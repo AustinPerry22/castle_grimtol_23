@@ -46,6 +46,7 @@
         </div>
       </section>
     </div>
+  <ScoreboardButton />
 </template>
 
 
@@ -53,29 +54,24 @@
 import { AppState } from '../AppState.js';
 import { computed, onMounted } from 'vue';
 import { characterService } from '../services/CharacterService.js';
+import ScoreboardButton from "../components/ScoreboardButton.vue";
 
 export default {
-  setup() {
-
-    onMounted(() => {
-
-    })
-
-    return { 
-      characters: computed(() => AppState.characters),
-      player: computed(() => AppState.player),
-      
-      selectCharacter(char) {
-        characterService.setCharacter(char);
-      },
-
-      unselectCharacter() {
-        characterService.unsetCharacter();
-      },
-
-      
-    }
-  }
+    setup() {
+        onMounted(() => {
+        });
+        return {
+            characters: computed(() => AppState.characters),
+            player: computed(() => AppState.player),
+            selectCharacter(char) {
+                characterService.setCharacter(char);
+            },
+            unselectCharacter() {
+                characterService.unsetCharacter();
+            },
+        };
+    },
+    components: { ScoreboardButton }
 };
 </script>
 

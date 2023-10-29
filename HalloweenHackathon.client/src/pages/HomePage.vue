@@ -28,13 +28,18 @@
       </div>
     </section>
   </div>
+  <scoreboard-button />
 </template>
+
 <script>
+import ScoreboardButton from "../components/ScoreboardButton.vue";
+
 
 export default {
-  setup() {
-    return {}
-  }
+    setup() {
+        return {};
+    },
+    components: { ScoreboardButton }
 }
 </script>
 
