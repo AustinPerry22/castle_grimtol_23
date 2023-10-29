@@ -25,5 +25,6 @@ export default {
 .scare-img{
     min-width: 100vh;
     min-height: 100vh;
+    z-index: 1200;
 }
 </style>
