@@ -22,7 +22,7 @@
         </div>
         <div class="d-flex justify-content-center">
           <router-link :to="{path: 'character-select'}">
-            <button class="enter-button fs-4"> Enter... <br>At your own peril.. </button>
+            <button class="enter-button fs-3"> Enter... <br>At your own peril.. </button>
           </router-link>
         </div>
       </div>
@@ -60,6 +60,8 @@ export default {
   .enter-button{
     border-radius: 10px;
     background-color: rgba(174, 10, 10, 0.734);
+    padding: 0.5em;
+    font-family: 'Metal Mania';
   }
 
   .enter-button:hover{
