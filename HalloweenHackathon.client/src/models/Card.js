@@ -4,5 +4,6 @@ export class Card{
         this.id = data.id
         this.type = data.type
         this.locked = true
+        this.question = {}
     }
 }

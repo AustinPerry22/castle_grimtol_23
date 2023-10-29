@@ -27,11 +27,22 @@ import {triviaService} from '../services/TriviaService'
 import { logger } from '../utils/Logger';
 import ScareCard from '../components/ScareCard.vue';
 import TriviaCard from '../components/TriviaCard.vue';
+import Pop from '../utils/Pop';
 export default {
     setup() {
-        onMounted(() => generateCards());
+        onMounted(() => {
+            generateCards()
+            getQuestions()
+        });
         function generateCards() {
             triviaService.generateCards();
+        }
+        async function getQuestions() {
+            try {
+                triviaService.getQuestions();
+            } catch (error) {
+                Pop.error(error)
+            }
         }
         return {
             jumpscare: computed(() => AppState.jumpscare),
@@ -41,7 +52,7 @@ export default {
             }
         };
     },
-    components: { ScareCard, TriviaCard }
+    components: { TriviaCard }
 };
 </script>
 
