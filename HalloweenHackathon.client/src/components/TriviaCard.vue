@@ -1,5 +1,5 @@
 <template>
-  <div class="container trivia-img">
+  <div class="container-fluid trivia-img">
     <section class="row">
       <div class="col-12 text-center">
         <h1 class="text">
@@ -49,6 +49,5 @@ setup() {
   /* background-color: red; */
   border-radius: 10px;
   height: 30vh;
-  width: 62vh;
 }
 </style>
