@@ -13,7 +13,8 @@ export const AppState = reactive({
   player: {
     name: '',
     character: '',
-    score: 0
+    score: 0,
+    courage:100
   },
 
   scores: '',
