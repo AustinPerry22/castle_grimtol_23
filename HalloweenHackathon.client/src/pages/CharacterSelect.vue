@@ -81,6 +81,7 @@ export default {
 
 
 <style lang="scss" scoped>
+
 @charset "UTF-8";
 @import"https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,400;0,600;1,400&family=Metal+Mania&family=VT323&display=swap";
 @font-face {
@@ -92,10 +93,6 @@ export default {
     font-display: block
 }
 
-img{
-  height: 16rem;
-}
-
 .metalMania{
   font-family: 'Metal Mania';
   color:white;
@@ -104,6 +101,10 @@ img{
 .robotoMono{
   color:white;
   font-family: 'Roboto Mono';
+}
+
+img{
+  height: 16rem;
 }
 
 .bgBlur{
