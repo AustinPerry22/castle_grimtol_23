@@ -22,7 +22,6 @@
     import { computed, reactive, onMounted } from 'vue';
     import { router } from '../router';
     import ScoreboardButton from "../components/ScoreboardButton.vue";
-import ScoreboardButton from "../components/ScoreboardButton.vue";
 
     export default {
     setup() {

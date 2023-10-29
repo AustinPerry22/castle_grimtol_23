@@ -46,7 +46,7 @@
         </div>
       </section>
     </div>
-  <ScoreboardButton />
+<ScoreboardButton />
 </template>
 
 
