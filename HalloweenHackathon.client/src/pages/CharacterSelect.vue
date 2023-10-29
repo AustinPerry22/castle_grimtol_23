@@ -6,8 +6,8 @@
       </div>
     </section>
     <section v-for="char in characters" :key="char.id" @click="selectCharacter(char)" 
-      class="row border rounded p-1 p-md-3 m-1 m-md-3 justify-content-center">
-      <div class="col-12 col-md-2 p-1 p-md-3 d-flex justify-content-end">
+      class="row border rounded p-1 p-md-3 m-1 m-md-3 justify-content-center" type="button" title="Click to Choose Character">
+      <div class="col-12 col-md-2 p-1 p-md-3 d-flex justify-content-end" >
         <img :src="char.picture" :alt="char.name" class="rounded">
       </div>
       <div class="col-12 col-md-6 p-3 d-flex align-items-center">
@@ -40,7 +40,7 @@
           <router-link :to="{name:'Map'}">
             <button class="btn border-danger fs-1 metalMania text-center mt-3">Are you ready?</button>
           </router-link>
-          <div class="backButton pt-2 pt-md-5" @click="unselectCharacter()">
+          <div class="backButton pt-2 pt-md-5" @click="unselectCharacter()" type="button" title="Back to select">
             <i class="fs-1 text-danger mdi mdi-backspace"></i>
           </div>
         </div>
