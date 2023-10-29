@@ -7,10 +7,10 @@
                     <TriviaCard/>
                 </div>
                 <div v-if="card.type == 1 && !card.locked">
-                    spooky
+                    <CourageItemCard/>
                 </div>
                 <div v-if="card.type == 2 && !card.locked">
-                    hi
+                    <ScareCard/>
                 </div>
                 <div v-if="card.locked" class="card text-white flex justify-content-center align-items-center my-2 selectable"></div>
             </div>
@@ -27,21 +27,49 @@ import {triviaService} from '../services/TriviaService'
 import { logger } from '../utils/Logger';
 import ScareCard from '../components/ScareCard.vue';
 import TriviaCard from '../components/TriviaCard.vue';
+import Pop from '../utils/Pop';
 export default {
     setup() {
-        onMounted(() => generateCards());
+        onMounted(() => {
+            generateCards()
+            getQuestions()
+        });
         function generateCards() {
             triviaService.generateCards();
+        }
+        async function getQuestions() {
+            try {
+                triviaService.getQuestions();
+            } catch (error) {
+                Pop.error(error)
+            }
         }
         return {
             jumpscare: computed(() => AppState.jumpscare),
             cards: computed(() => AppState.triviaCards),
             getCard(card) {
                 card.locked = false;
+
+                if(card.type == 0){
+                    // const randomNumber = Math.floor(Math.random() * 3)
+                    
+                }
+                else if (card.type == 1) {
+                    const randomNumber = Math.floor(Math.random() * 2)
+                    logger.log('random number for type 1:', randomNumber)
+                    AppState.activePotion = AppState.potions[randomNumber]
+                    logger.log('the following potion is our active potion:', AppState.activePotion)
+                }
+                else if (card.type == 2) {
+                    const randomNumber = Math.floor(Math.random() * 3)
+                    logger.log('random number for type 1:', randomNumber)
+                    AppState.activeJumpScare = AppState.jumpScares[randomNumber]
+                    logger.log('the following potion is our active jump scare:', AppState.activeJumpScare)
+                }
             }
         };
     },
-    components: { ScareCard, TriviaCard }
+    components: { TriviaCard }
 };
 </script>
 
