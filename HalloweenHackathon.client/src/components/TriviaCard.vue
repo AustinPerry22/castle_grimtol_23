@@ -2,13 +2,14 @@
   <div class="container-fluid trivia-img">
     <section class="row">
       <div class="col-12 text-center">
-        <h3 v-if="card && answers" class="text">
+        <h4 v-if="card && answers" class="text pt-3">
           {{ card.question.question }}
-          <h5 @click="submitAnswer(answers[0])">{{ answers[0] }}</h5>
-          <h5 @click="submitAnswer(answers[1])">{{ answers[1] }}</h5>
-          <h5 @click="submitAnswer(answers[2])">{{ answers[2] }}</h5>
-          <h5 @click="submitAnswer(answers[3])">{{ answers[3] }}</h5>
-        </h3>
+          <hr>
+          <h5 :disabled="card.guessed" @click="submitAnswer(answers[0])" type="button">{{ answers[0] }}</h5>
+          <h5 :disabled="card.guessed" @click="submitAnswer(answers[1])" type="button">{{ answers[1] }}</h5>
+          <h5 :disabled="card.guessed" @click="submitAnswer(answers[2])" type="button">{{ answers[2] }}</h5>
+          <h5 :disabled="card.guessed" @click="submitAnswer(answers[3])" type="button">{{ answers[3] }}</h5>
+        </h4>
       </div>
     </section>
     <section class="row">
@@ -66,10 +67,12 @@ setup(props) {
     submitAnswer(answerId){
       if(answerId == props.card.question.correctAnswer) 
       {
-        AppState.player.score++
+        AppState.player.score++;
+        props.card.guessed = true;
         Pop.success("right answer")
       } 
       else{
+        props.card.guessed = true;
         Pop.error("You are dead")
       }
     }
