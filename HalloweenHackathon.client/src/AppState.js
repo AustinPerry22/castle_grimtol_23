@@ -47,17 +47,17 @@ export const AppState = reactive({
     {
       name: 'HELP ME!!!!',
       img: 'https://media2.giphy.com/media/XfDLLaLEVMIjTrbXuW/giphy.gif?cid=6c09b952vgab1u32lwudzejngqupt6jhgyda1k1axuf0kts1&ep=v1_stickers_related&rid=giphy.gif&ct=s',
-      music: '/src/assets/music/female-scream-horror_120bpm.wav'
+      music: '/src/assets/music/Cinematic Horror/female-scream-horror_120bpm.wav'
     },
     {
       name: "Don't sleep." ,
       img: 'https://media.tenor.com/M5CDDMSJavIAAAAj/lomando-kuchisake-onna.gif',
-      music: '/src/assets/music/female-scream-horror_120bpm.wav'
+      music: '/src/assets/music/Cinematic Horror/female-scream-horror_120bpm.wav'
     },
     {
       name: 'Hungry hungry!',
       img: 'https://i.gifer.com/origin/fc/fc1ca5c0851ae6de960df464ee607d3d_w200.gif',
-      music: '/src/assets/music/female-scream-horror_120bpm.wav'
+      music: '/src/assets/music/Cinematic Horror/female-scream-horror_120bpm.wav'
     }
   ],
 
