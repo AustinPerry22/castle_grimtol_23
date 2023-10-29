@@ -10,8 +10,9 @@
                     <CourageItemCard/>
                 </div>
                 <div v-if="card.type == 2 && !card.locked">
-                    <ScareCard/>
-                    
+                    <div v-if="show">
+                        <ScareCard/>
+                    </div>
                 </div>
                 <div v-if="card.locked" class="card text-white flex justify-content-center align-items-center my-2 selectable"></div>
             </div>
@@ -49,6 +50,7 @@ export default {
         return {
             jumpscare: computed(() => AppState.jumpscare),
             cards: computed(() => AppState.triviaCards),
+            show: true,
             getCard(card) {
                 card.locked = false;
 
