@@ -3,12 +3,12 @@
     <section class="row background-img">
       <div class="col-12 text-center">
         <h1 class="text">
-          Elixir of Courage
+          {{ potion.name }}
         </h1>
       </div>
       <section class="row justify-content-center">
         <div class="col-5">
-          <img class="courage-img" src="https://media1.giphy.com/media/wQs3zmKzFd6IghJm4L/giphy.webp?cid=ecf05e47jb2s2llqla2dc8cu31j0kvt4f55s0k5czquof5ph&ep=v1_stickers_search&rid=giphy.webp&ct=s" alt="">
+          <img class="courage-img" :src="potion.img" alt="courage potion">
         </div>
       </section>
     </section>
@@ -16,10 +16,13 @@
 </template>
 
 <script>
+import { computed } from "vue";
+import { AppState } from "../AppState.js";
+
 export default {
 setup() {
   return {
-
+    potion: computed(()=> AppState.activePotion)
   };
 },
 };

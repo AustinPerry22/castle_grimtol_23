@@ -1,7 +1,7 @@
 <template>
     <div class="row">
         <div class="col-12">
-            <img src="https://www.horrormovietalk.com/wp-content/uploads/2018/11/The-Nun-Jump-Scare.jpg" alt="">
+            <img :src="jumpScare.img" alt="">
         </div>
     </div>
 </template>
@@ -13,7 +13,7 @@ import { computed, reactive, onMounted } from 'vue';
 export default {
     setup(){
     return {  
-
+        jumpScare: computed(()=> AppState.activeJumpScare)
     }
     }
 };
