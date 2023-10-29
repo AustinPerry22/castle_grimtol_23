@@ -11,6 +11,9 @@ export const AppState = reactive({
     character: '',
     score: 0
   },
+
+  scores: '',
+  
   // random array of 0,1,2
   triviaCards: [],
 
