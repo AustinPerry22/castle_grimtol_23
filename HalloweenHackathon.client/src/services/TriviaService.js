@@ -16,7 +16,14 @@ class TriviaService{
 
     async getQuestions(){
         const res = await api.get("api/questions")
-        logger.log(res)
+        AppState.questions = res.data
+    }
+
+    getQuestion(card){
+        const randomIndex = Math.floor(Math.random()*AppState.questions.length)
+        const randomQuestion = AppState.questions[randomIndex]
+        card.question = randomQuestion;
+        AppState.triviaCards[card.id] = card
     }
 }
 export const triviaService = new TriviaService

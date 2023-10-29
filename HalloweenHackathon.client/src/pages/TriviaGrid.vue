@@ -4,7 +4,7 @@
         <div class="row p-0 m-1 d-flex justify-content-between">
             <div v-for="card in cards" :key="card.id" @click="getCard(card)" class="col-4">
                 <div v-if="card.type == 0 && !card.locked">
-                    <TriviaCard/>
+                    <TriviaCard :card="card"/>
                 </div>
                 <div v-if="card.type == 1 && !card.locked">
                     <CourageItemCard/>
@@ -38,9 +38,10 @@ export default {
         function generateCards() {
             triviaService.generateCards();
         }
-        async function getQuestions() {
+        async function getQuestions()
+        {
             try {
-                triviaService.getQuestions();
+                triviaService.getQuestions()
             } catch (error) {
                 Pop.error(error)
             }

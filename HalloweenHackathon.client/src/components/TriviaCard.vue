@@ -2,26 +2,26 @@
   <div class="container-fluid trivia-img">
     <section class="row">
       <div class="col-12 text-center">
-        <h1 class="text">
-          Answer Wisely....
+        <h1 v-if="card" class="text">
+          {{ card.question.question }}
         </h1>
       </div>
     </section>
     <section class="row">
       <div class="col-6">
         <div class="row">
-          Question 1
+          {{ answers[0] }}
         </div>
         <div class="row">
-          Question 2
+          {{ answers[1] }}
         </div>
       </div>
       <div class="col-6">
         <div class="row">
-          Question 3
+          {{ answers[2] }}
         </div>
         <div class="row">
-          Question 4
+          {{ answers[3] }}
         </div>
       </div>
     </section>
@@ -29,9 +29,39 @@
 </template>
 
 <script>
+import { onMounted } from 'vue';
+import { triviaService } from '../services/TriviaService';
+import { Card } from '../models/Card';
+import { logger } from '../utils/Logger';
+
 export default {
-setup() {
-  return {};
+  props: {card: {type: Card}},
+setup(props) {
+  onMounted(()=> getQuestion())
+  function getQuestion(){
+    triviaService.getQuestion(props.card)
+    randomizeAnswers()
+  }
+  let answers = []
+  function randomizeAnswers(){
+    let randomizedAnswers = []
+    logger.log(props.card.question)
+    answers.push(props.card.question.correctAnswer)
+    props.card.question.incorrectAnswers.forEach(answer=>{
+      answers.push(answer)
+    })
+    logger.log(answers)
+    answers.forEach(answer=>{
+      const randomIndex = Math.floor(Math.random()*answers.length)
+      let splicedAnswer = answers.splice(randomIndex, 1)
+      randomizedAnswers.push(splicedAnswer[0])
+    })
+    answers = randomizedAnswers
+  }
+
+  return {
+    answers
+  };
 },
 };
 </script>

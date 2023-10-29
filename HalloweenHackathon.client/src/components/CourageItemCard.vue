@@ -8,7 +8,7 @@
       </div>
       <section class="row justify-content-center">
         <div class="col-5">
-          <img class="courage-img" :src="potion.img" alt="">
+          <img class="courage-img" :src="potion.img" alt="courage potion">
         </div>
       </section>
     </section>
