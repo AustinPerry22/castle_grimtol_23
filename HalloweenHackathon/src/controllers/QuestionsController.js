@@ -7,6 +7,7 @@ export class QuestionsController extends BaseController {
     this.router
       .get('', this.getQuestions)
       .post('', this.createQuestion)
+      .delete('/:questionId', this.removeQuestion)
   }
 
   async getQuestions(req, res, next) {
@@ -22,6 +23,15 @@ export class QuestionsController extends BaseController {
     try {
       const newQuestion = await questionsService.createQuestion(req.body);
       return res.send(newQuestion)
+    } catch (error) {
+      next(error)
+    }
+  }
+
+  async removeQuestion(req, res, next) {
+    try {
+      const deleted = await questionsService.removeQuestion(req.params.questionId);
+      return res.send(deleted)
     } catch (error) {
       next(error)
     }
