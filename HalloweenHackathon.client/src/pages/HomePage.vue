@@ -11,7 +11,7 @@
       <div class="col-11 col-md-8 text-center">
         <h3>
           Welcome...... to the SPOOKIEST game this Halloween! <br>
-          Get ready for frights and flights as you make your way to the end of Scare Street! Answer SPOOKY questions and make your way through each house on Scare Street.
+          Get ready for frights and flights as you make your way to the end of Scare Street! Answer SPOOKY questions and make your way through each house on Scare Street... If you dare.
         </h3>
       </div>
     </section>
@@ -52,8 +52,8 @@ export default {
   }
 
   .gif{
-    max-height: 50vh;
-    max-width: 50vh;
+    max-height: 40vh;
+    max-width: 40vh;
   }
 
   .title{
