@@ -10,7 +10,7 @@
 
 <script>
 import { AppState } from '../AppState';
-import { computed, reactive, onMounted } from 'vue';
+import { computed } from 'vue';
 export default {
     setup(){
     return {  

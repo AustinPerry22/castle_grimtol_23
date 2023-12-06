@@ -7,11 +7,11 @@
                     <TriviaCard :card="card"/>
                 </div>
                 <div v-if="card.type == 1 && !card.locked">
-                    <CourageItemCard/>
+                    <CourageItemCard />
                 </div>
                 <div v-if="card.type == 2 && !card.locked">
                     <div v-if="show">
-                        <ScareCard/>
+                        <ScareCard />
                     </div>
                 </div>
                 <div v-if="card.locked" class="card text-white flex justify-content-center align-items-center my-2 selectable"></div>
@@ -23,13 +23,15 @@
 
 
 <script>
+import Pop from '../utils/Pop';
 import { AppState } from '../AppState';
-import { computed, reactive, onMounted } from 'vue';
-import {triviaService} from '../services/TriviaService'
 import { logger } from '../utils/Logger';
+import { computed, onMounted } from 'vue';
+import {triviaService} from '../services/TriviaService'
 import ScareCard from '../components/ScareCard.vue';
 import TriviaCard from '../components/TriviaCard.vue';
-import Pop from '../utils/Pop';
+import CourageItemCard from '../components/CourageItemCard.vue';
+
 export default {
     setup() {
         onMounted(() => {
@@ -88,7 +90,7 @@ export default {
             // }
         };
     },
-    components: { TriviaCard }
+    components: { TriviaCard, ScareCard, CourageItemCard }
 };
 </script>
 

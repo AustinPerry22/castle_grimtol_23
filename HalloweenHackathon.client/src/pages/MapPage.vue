@@ -2,8 +2,8 @@
     <img class="map-img" src="../assets/img/map.png" alt="">
     <h1 class="title"> Scare St. </h1>
     <ScoreboardButton />
-    <div class="position-relative">
 
+    <div class="position-relative">
         <div class="house1 btn" @click="goToHousePage(1, house1Locked)">1
             <!-- <img v-if="house1Locked" src="../assets/img/lock.png" alt="1" class="lock-img"> -->
             <img src="https://media3.giphy.com/media/wiwZ3kBPtrG6wYMNjw/giphy.gif?cid=6c09b952bkudwaf55l5px1ksankpvji0zba4f6ctk5gvqi9n&ep=v1_stickers_related&rid=giphy.gif&ct=s" alt="1" class="">
