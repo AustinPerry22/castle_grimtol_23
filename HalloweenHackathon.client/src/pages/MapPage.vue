@@ -4,30 +4,25 @@
     <ScoreboardButton />
     <div class="position-relative">
 
-        <div class="house1 btn">1
+        <div class="house1 btn" @click="goToHousePage(1, house1Locked)">1
             <!-- <img v-if="house1Locked" src="../assets/img/lock.png" alt="1" class="lock-img"> -->
-            <img src="https://media3.giphy.com/media/wiwZ3kBPtrG6wYMNjw/giphy.gif?cid=6c09b952bkudwaf55l5px1ksankpvji0zba4f6ctk5gvqi9n&ep=v1_stickers_related&rid=giphy.gif&ct=s"
-                alt="1" class="" @click="goToHousePage(1, house1Locked)">
+            <img src="https://media3.giphy.com/media/wiwZ3kBPtrG6wYMNjw/giphy.gif?cid=6c09b952bkudwaf55l5px1ksankpvji0zba4f6ctk5gvqi9n&ep=v1_stickers_related&rid=giphy.gif&ct=s" alt="1" class="">
         </div>
-        <div class="house2 btn">2
+        <div class="house2 btn" @click="goToHousePage(2, house2Locked)">2
             <img v-if="house2Locked" src="../assets/img/lock.png" alt="2" class="lock-img">
-            <img src="https://media4.giphy.com/media/dOTLg5cVzgMap6na2l/200.webp?cid=ecf05e47qwf06g0dx80rj9th54tufrx7k6btouu1og4n9tvk&ep=v1_stickers_search&rid=200.webp&ct=s"
-                alt="2" class="" @click="goToHousePage(2, house2Locked)">
+            <img src="https://media4.giphy.com/media/dOTLg5cVzgMap6na2l/200.webp?cid=ecf05e47qwf06g0dx80rj9th54tufrx7k6btouu1og4n9tvk&ep=v1_stickers_search&rid=200.webp&ct=s" alt="2" class="">
         </div>
-        <div class="house3 btn">3
+        <div class="house3 btn" @click="goToHousePage(3, house3Locked)">3
             <img v-if="house3Locked" src="../assets/img/lock.png" alt="3" class="lock-img">
-            <img src="https://media3.giphy.com/media/sDkA2qix4cnK5P8BUZ/200.webp?cid=ecf05e47howgjdzp6ovy3yskbx8p83d7mrqju3vv0qabhc2r&ep=v1_stickers_search&rid=200.webp&ct=s"
-                alt="3" class="" @click="goToHousePage(3, house3Locked)">
+            <img src="https://media3.giphy.com/media/sDkA2qix4cnK5P8BUZ/200.webp?cid=ecf05e47howgjdzp6ovy3yskbx8p83d7mrqju3vv0qabhc2r&ep=v1_stickers_search&rid=200.webp&ct=s" alt="3" class="">
         </div>
-        <div class="house4 btn">4
+        <div class="house4 btn" @click="goToHousePage(4, house4Locked)">4
             <img v-if="house4Locked" src="../assets/img/lock.png" alt="4" class="lock-img">
-            <img src="https://media4.giphy.com/media/vWoRDgGYaZAqw5jzwR/200.webp?cid=ecf05e47yez34kroushgynwgzz015nbt4v43bzvq753gg3yo&ep=v1_stickers_search&rid=200.webp&ct=s"
-                alt="4" class="" @click="goToHousePage(4, house4Locked)">
+            <img src="https://media4.giphy.com/media/vWoRDgGYaZAqw5jzwR/200.webp?cid=ecf05e47yez34kroushgynwgzz015nbt4v43bzvq753gg3yo&ep=v1_stickers_search&rid=200.webp&ct=s" alt="4" class="">
         </div>
-        <div class="house5 btn">5
+        <div class="house5 btn" @click="goToHousePage(5, house5Locked)">5
             <img v-if="house5Locked" src="../assets/img/lock.png" alt="5" class="lock-img">
-            <img src="https://media0.giphy.com/media/6DOkW5jyFFdQVa5iQT/200.webp?cid=ecf05e47yez34kroushgynwgzz015nbt4v43bzvq753gg3yo&ep=v1_stickers_search&rid=200.webp&ct=s"
-                alt="5" class="" @click="goToHousePage(5, house5Locked)">
+            <img src="https://media0.giphy.com/media/6DOkW5jyFFdQVa5iQT/200.webp?cid=ecf05e47yez34kroushgynwgzz015nbt4v43bzvq753gg3yo&ep=v1_stickers_search&rid=200.webp&ct=s" alt="5" class="">
         </div>
 
     </div>
@@ -49,8 +44,10 @@ export default {
             house4Locked: computed(() => AppState.house4Locked),
             house5Locked: computed(() => AppState.house5Locked),
             goToHousePage(houseNumber, locked) {
-                if (locked)
-                    return;
+                if (locked) {
+                    // add trigger chains rattling sound
+                    return
+                }
                 router.push({ name: "TriviaGrid" });
             }
         };
