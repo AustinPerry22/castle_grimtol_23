@@ -1,8 +1,8 @@
 
 <template>
-<div class="container-fluid">
-  <section class="row justify-content-center">
-    <div class="col-12 d-flex justify-content-center p-1 pt-5">
+<div class="container-fluid rounded">
+  <section class="row justify-content-center pb-5">
+    <div class="col-12 d-flex justify-content-center p-1 py-5">
       <div class="text-center">
         <p class="fs-1 courier p-1 px-md-5 bg-green metalMania">&nbsp; High Scores &nbsp; </p>
       </div>
@@ -20,10 +20,10 @@
 
 
 <script>
+import Pop from "../utils/Pop";
 import { AppState } from '../AppState.js';
 import { computed, onMounted } from 'vue';
 import { logger } from "../utils/Logger";
-import Pop from "../utils/Pop";
 import { scoresService } from '../services/ScoresService.js';
 
 export default {

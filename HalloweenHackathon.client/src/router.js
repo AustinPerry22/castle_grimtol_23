@@ -27,11 +27,6 @@ const routes = [
     component: loadPage('TriviaGrid')
   },
   {
-    path: '/scoreboard',
-    name: 'Scoreboard',
-    component: loadPage('Scoreboard')
-  },
-  {
     path: '/account',
     name: 'Account',
     component: loadPage('AccountPage'),

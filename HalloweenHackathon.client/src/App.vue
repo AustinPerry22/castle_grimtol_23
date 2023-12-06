@@ -2,18 +2,26 @@
   <main>
     <router-view />
   </main>
+  <ModalComponent :modalId="'scoreboard'" :modalSize="'modal-lg background-img'">
+    <template #modalBody>
+      <Scoreboard />
+    </template>
+  </ModalComponent>
 </template>
 
 <script>
 import { computed } from 'vue'
 import { AppState } from './AppState'
+import ModalComponent from "./components/ModalComponent.vue";
+import Scoreboard from "./components/Scoreboard.vue";
 
 export default {
-  setup() {
-    return {
-      appState: computed(() => AppState)
-    }
-  },
+    setup() {
+        return {
+            appState: computed(() => AppState)
+        };
+    },
+    components: { ModalComponent, Scoreboard }
 }
 </script>
 <style lang="scss">
